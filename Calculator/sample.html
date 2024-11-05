@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="wrapper"> 
+        <div class="calculator">
+            <input type="text" id="disp-screen">
+            <button onclick="clr()" class="operator">AC</button>
+            <button onclick="del()" class="operator">DEL</button>
+            <button onclick="display('/')" class="operator">/</button>
+            <button onclick="display('%')" class="operator">%</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')" class="operator">*</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('+')" class="operator">+</button>
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('-')" class="operator">-</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="calculate()" class="eql operator">=</button>
+        </div>   
+    </div>
+
+    <script>
+        var dispscreen=document.getElementById("disp-screen");
+        function display(number){
+            dispscreen.value +=number;
+        }
+        function calculate(){
+            try
+            {
+                dispscreen.value = eval(dispscreen.value);
+            }
+            catch(err)
+            {
+                alert("Syntax Error");
+
+            }
+        }
+        function clr()
+        {
+                dispscreen.value = "";
+        }
+        function del()
+        {
+            dispscreen.value = dispscreen.value.slice (0,-1);
+        } 
+        
+    </script> 
+</body>
+</html>
